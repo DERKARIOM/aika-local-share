@@ -113,6 +113,8 @@ const steps = [
 ];
 
 export function HowItWorks() {
+  const qrShot = mobileScreenshots[1]!;
+
   return (
     <section id="fonctionnement" className="bg-surface py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -146,7 +148,7 @@ export function HowItWorks() {
               </p>
             </div>
             <div className="mx-auto w-full max-w-[220px]">
-              <PhoneFrame src={mobileScreenshots[1].src} alt={mobileScreenshots[1].alt} />
+              <PhoneFrame src={qrShot.src} alt={qrShot.alt} />
             </div>
           </div>
         </Reveal>
@@ -424,11 +426,11 @@ export function Offline() {
                 </g>
               ))}
               {[
-                [120, 60],
-                [480, 60],
-                [300, 130],
-                [300, 200],
-              ].map(([cx, cy]) => (
+                { cx: 120, cy: 60 },
+                { cx: 480, cy: 60 },
+                { cx: 300, cy: 130 },
+                { cx: 300, cy: 200 },
+              ].map(({ cx, cy }) => (
                 <g key={`${cx}-${cy}`}>
                   <circle cx={cx} cy={cy} r="16" fill="var(--color-primary)" fillOpacity="0.16" />
                   <circle cx={cx} cy={cy} r="7" fill="var(--color-primary)" />

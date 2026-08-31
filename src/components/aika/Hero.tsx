@@ -41,6 +41,9 @@ function TransferLink() {
 }
 
 export function Hero() {
+  const phone = mobileScreenshots[0]!;
+  const laptop = desktopScreenshots[0]!;
+
   return (
     <section id="accueil" className="relative overflow-hidden pt-28 pb-16 sm:pt-36 sm:pb-24">
       <div
@@ -81,14 +84,14 @@ export function Hero() {
           <TransferLink />
           <div className="relative mx-auto max-w-xl">
             <LaptopFrame
-              src={desktopScreenshots[0].src}
-              alt={desktopScreenshots[0].alt}
+              src={laptop.src}
+              alt={laptop.alt}
               priority
               className="ml-auto w-[88%]"
             />
             <PhoneFrame
-              src={mobileScreenshots[0].src}
-              alt={mobileScreenshots[0].alt}
+              src={phone.src}
+              alt={phone.alt}
               priority
               className="animate-float absolute -bottom-10 left-0 w-[38%] max-w-[190px]"
             />
