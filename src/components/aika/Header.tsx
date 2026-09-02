@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { navLinks } from "@/config/site";
-import logo from "@/assets/aika-logo.png";
+import logoAsset from "@/assets/aika-logo.png.asset.json";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -27,7 +27,7 @@ export function Header() {
         className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8"
       >
         <a href="#accueil" className="flex items-center gap-2">
-          <img src={logo} alt="" width={40} height={40} className="size-8" />
+          <img src={logoAsset.url} alt="" width={40} height={40} className="size-8 object-contain" />
           <span className="font-display text-lg font-bold tracking-tight">Aika</span>
         </a>
 

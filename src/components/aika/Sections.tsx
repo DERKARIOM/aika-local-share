@@ -30,7 +30,7 @@ import {
   site,
   navLinks,
 } from "@/config/site";
-import logo from "@/assets/aika-logo.png";
+import logoAsset from "@/assets/aika-logo.png.asset.json";
 
 function SectionTitle({
   eyebrow,
@@ -491,7 +491,14 @@ export function Footer() {
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div className="max-w-sm">
             <div className="flex items-center gap-2">
-              <img src={logo} alt="" width={40} height={40} loading="lazy" className="size-8" />
+              <img
+                src={logoAsset.url}
+                alt=""
+                width={40}
+                height={40}
+                loading="lazy"
+                className="size-8 object-contain"
+              />
               <span className="font-display text-lg font-bold">Aika</span>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
