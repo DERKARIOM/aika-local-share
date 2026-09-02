@@ -26,9 +26,15 @@ export function Header() {
         aria-label="Navigation principale"
         className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8"
       >
-        <a href="#accueil" className="flex items-center gap-2">
-          <img src={logoSrc} alt="" width={40} height={40} className="size-8 object-contain" />
-          <span className="font-display text-lg font-bold tracking-tight">Aika</span>
+        <a href="#accueil" className="flex items-center gap-2.5">
+          <img
+            src={logoSrc}
+            alt=""
+            width={48}
+            height={48}
+            className="size-9 object-contain sm:size-11"
+          />
+          <span className="font-display text-xl font-bold tracking-tight sm:text-2xl">Aika</span>
         </a>
 
         <ul className="hidden items-center gap-7 lg:flex">

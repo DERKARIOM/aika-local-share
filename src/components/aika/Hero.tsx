@@ -2,6 +2,7 @@ import { ArrowRight, Download } from "lucide-react";
 import { PhoneFrame, LaptopFrame } from "./Mockups";
 import { desktopScreenshots } from "@/config/site";
 import heroMobileSrc from "@/assets/aika-hero-mobile.jpg";
+import logoSrc from "@/assets/aika-logo.png";
 
 /** Animation légère : paquets de données circulant entre le mobile et l'ordinateur. */
 function TransferLink() {
@@ -55,11 +56,20 @@ export function Hero() {
       />
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1.05fr_1fr]">
         <div>
-          <p className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-medium text-muted-foreground shadow-soft">
-            <span className="size-1.5 rounded-full bg-primary" />
-            Le partage de fichiers, simplement.
-          </p>
-          <h1 className="mt-6 text-[clamp(2.6rem,6vw,4.6rem)] font-bold leading-[1.02]">
+          <div className="flex items-center gap-3">
+            <img
+              src={logoSrc}
+              alt=""
+              width={40}
+              height={40}
+              className="size-8 object-contain sm:size-9"
+            />
+            <p className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-medium text-muted-foreground shadow-soft">
+              <span className="size-1.5 rounded-full bg-primary" />
+              Le partage de fichiers, simplement.
+            </p>
+          </div>
+          <h1 className="mt-6 text-[clamp(2.6rem,6vw,4.6rem)] font-extrabold leading-[1.02]">
             Transférez. <span className="text-gradient">Partagez.</span> Connectez.
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">

@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Reveal } from "./Reveal";
+import { GooglePlayIcon, AppStoreIcon, AppleIcon, WindowsIcon, LinuxIcon } from "./PlatformIcons";
 import { PhoneFrame, LaptopFrame } from "./Mockups";
 import { mobileScreenshots, desktopScreenshots, platforms, site, navLinks } from "@/config/site";
 import logoSrc from "@/assets/aika-logo.png";
@@ -273,12 +274,15 @@ export function Showcase() {
 
 /* ----------------------------- TÉLÉCHARGEMENT ----------------------------- */
 
-const platformIcon: Record<string, typeof Smartphone> = {
-  android: Smartphone,
-  ios: Smartphone,
-  windows: Laptop,
-  macos: Laptop,
-  linux: Laptop,
+// Vrais logos de marque (voir PlatformIcons.tsx pour les sources/licences) —
+// plus l'icône générique Lucide en repli si une plateforme est ajoutée sans
+// logo dédié.
+const platformIcon: Record<string, (props: { className?: string }) => React.ReactElement> = {
+  android: GooglePlayIcon,
+  ios: AppStoreIcon,
+  windows: WindowsIcon,
+  macos: AppleIcon,
+  linux: LinuxIcon,
 };
 
 export function DownloadSection() {
@@ -298,11 +302,11 @@ export function DownloadSection() {
             const Icon = platformIcon[p.id] ?? Laptop;
             return (
               <Reveal as="li" key={p.id} delay={(i % 3) * 80}>
-                <div className="surface-card flex h-full flex-col p-7">
-                  <span className="inline-flex size-11 items-center justify-center rounded-xl bg-secondary text-primary">
-                    <Icon className="size-5" />
+                <div className="surface-card group flex h-full flex-col p-7 transition-shadow duration-300 hover:shadow-lift">
+                  <span className="inline-flex size-14 items-center justify-center rounded-2xl bg-secondary text-primary transition-transform duration-300 group-hover:scale-105">
+                    <Icon className="size-7" />
                   </span>
-                  <h3 className="mt-5 text-lg font-semibold">{p.name}</h3>
+                  <h3 className="mt-5 text-xl font-bold">{p.name}</h3>
                   <p className="mt-1 text-sm text-muted-foreground">
                     {p.store}
                     {p.format ? ` · ${p.format}` : ""}
@@ -311,7 +315,7 @@ export function DownloadSection() {
                     {p.url ? (
                       <a
                         href={p.url}
-                        className="inline-flex w-full items-center justify-center rounded-full bg-brand px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.02]"
+                        className="inline-flex w-full items-center justify-center rounded-full bg-brand px-5 py-3.5 text-sm font-semibold text-primary-foreground shadow-soft transition-transform hover:scale-[1.02]"
                       >
                         {p.cta}
                       </a>
@@ -319,7 +323,7 @@ export function DownloadSection() {
                       <span
                         aria-disabled="true"
                         title="Lien à configurer dans src/config/site.ts"
-                        className="inline-flex w-full cursor-not-allowed items-center justify-center rounded-full border border-border bg-muted px-5 py-3 text-sm font-semibold text-muted-foreground"
+                        className="inline-flex w-full cursor-not-allowed items-center justify-center rounded-full border border-border bg-muted px-5 py-3.5 text-sm font-semibold text-muted-foreground"
                       >
                         Bientôt disponible
                       </span>
@@ -545,16 +549,16 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div className="max-w-sm">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2.5">
               <img
                 src={logoSrc}
                 alt=""
-                width={40}
-                height={40}
+                width={48}
+                height={48}
                 loading="lazy"
-                className="size-8 object-contain"
+                className="size-10 object-contain"
               />
-              <span className="font-display text-lg font-bold">Aika</span>
+              <span className="font-display text-xl font-bold">Aika</span>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
               {site.tagline} Transférez vos fichiers entre appareils proches, sur votre réseau

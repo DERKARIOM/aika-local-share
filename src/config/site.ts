@@ -56,14 +56,14 @@ export const platforms: Platform[] = [
     id: "android",
     name: "Android",
     store: "Google Play Store",
-    cta: "Télécharger sur Google Play",
+    cta: "Disponible sur Google Play",
     url: DOWNLOAD_LINKS.PLAY_STORE_URL,
   },
   {
     id: "ios",
     name: "iOS",
     store: "Apple App Store",
-    cta: "Télécharger sur l'App Store",
+    cta: "Télécharger dans l'App Store",
     url: DOWNLOAD_LINKS.APP_STORE_URL,
   },
   {
