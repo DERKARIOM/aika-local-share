@@ -30,7 +30,7 @@ export const DOWNLOAD_LINKS = {
 };
 
 export const GITHUB_URL: string | null = null; // ex: "https://github.com/…"
-export const CONTACT_EMAIL = "contact@aika.app"; // à remplacer
+export const CONTACT_EMAIL = "contact@naniger.com";
 export const APP_VERSION = "1.0.0";
 
 export const site = {

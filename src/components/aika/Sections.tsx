@@ -21,6 +21,7 @@ import {
   Mail,
   Github,
 } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { Reveal } from "./Reveal";
 import { PhoneFrame, LaptopFrame } from "./Mockups";
 import { mobileScreenshots, desktopScreenshots, platforms, site, navLinks } from "@/config/site";
@@ -593,7 +594,12 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col gap-2 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 Aika. Tous droits réservés.</p>
+          <p>
+            © 2026 Aika. Tous droits réservés. ·{" "}
+            <Link to="/privacy" className="underline underline-offset-4 hover:text-foreground">
+              Confidentialité
+            </Link>
+          </p>
           <p>Projet académique — Master Informatique Fondamentale et Appliquée</p>
         </div>
       </div>
