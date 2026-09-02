@@ -23,6 +23,14 @@ import {
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Reveal } from "./Reveal";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { GooglePlayIcon, AppStoreIcon, AppleIcon, WindowsIcon, LinuxIcon } from "./PlatformIcons";
 import { PhoneFrame, LaptopFrame } from "./Mockups";
 import { mobileScreenshots, desktopScreenshots, platforms, site, navLinks } from "@/config/site";
@@ -311,7 +319,12 @@ export function DownloadSection() {
                     {p.store}
                     {p.format ? ` · ${p.format}` : ""}
                   </p>
-                  <div className="mt-6 pt-1">
+                  {p.id === "macos" && (
+                    <p className="mt-1 text-xs font-medium text-brand">
+                      Bientôt disponible sur l'App Store
+                    </p>
+                  )}
+                  <div className="mt-6 flex flex-1 flex-col justify-end gap-2 pt-1">
                     {p.url ? (
                       <a
                         href={p.url}
@@ -327,6 +340,52 @@ export function DownloadSection() {
                       >
                         Bientôt disponible
                       </span>
+                    )}
+                    {p.id === "macos" && p.url && (
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <button
+                            type="button"
+                            className="text-center text-xs font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
+                          >
+                            Comment installer sur macOS ?
+                          </button>
+                        </DialogTrigger>
+                        <DialogContent className="sm:max-w-md">
+                          <DialogHeader>
+                            <DialogTitle>Installer Aika sur macOS</DialogTitle>
+                            <DialogDescription>
+                              Aika sera bientôt disponible sur l'App Store. En attendant, voici
+                              comment installer la version en téléchargement direct.
+                            </DialogDescription>
+                          </DialogHeader>
+                          <ol className="mt-2 list-inside list-decimal space-y-3 text-sm text-muted-foreground">
+                            <li>
+                              Ouvrez le fichier{" "}
+                              <strong className="text-foreground">Aika.dmg</strong> téléchargé, puis
+                              faites glisser <strong className="text-foreground">Aika</strong> dans
+                              le dossier <strong className="text-foreground">Applications</strong>.
+                            </li>
+                            <li>
+                              Lancez Aika depuis Applications. macOS peut afficher un avertissement,
+                              car l'app n'est pas encore certifiée par l'App Store.
+                            </li>
+                            <li>
+                              Ouvrez{" "}
+                              <strong className="text-foreground">
+                                Réglages Système → Confidentialité et sécurité
+                              </strong>
+                              , faites défiler jusqu'en bas de la page, puis cliquez sur{" "}
+                              <strong className="text-foreground">« Ouvrir quand même »</strong> à
+                              côté d'Aika.
+                            </li>
+                            <li>
+                              Confirmez une dernière fois dans la fenêtre qui apparaît. Aika se
+                              lance ensuite normalement, comme n'importe quelle autre application.
+                            </li>
+                          </ol>
+                        </DialogContent>
+                      </Dialog>
                     )}
                   </div>
                 </div>
