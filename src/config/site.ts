@@ -4,16 +4,16 @@
  * et les captures d'écran de l'application.
  */
 
-import mobile1 from "@/assets/screens/mobile-1.jpg.asset.json";
-import mobile2 from "@/assets/screens/mobile-2.jpg.asset.json";
-import mobile3 from "@/assets/screens/mobile-3.jpg.asset.json";
-import mobile4 from "@/assets/screens/mobile-4.jpg.asset.json";
-import mobile5 from "@/assets/screens/mobile-5.jpg.asset.json";
-import mobile6 from "@/assets/screens/mobile-6.jpg.asset.json";
-import mobile7 from "@/assets/screens/mobile-7.jpg.asset.json";
-import desktop1 from "@/assets/screens/desktop-1.png.asset.json";
-import desktop2 from "@/assets/screens/desktop-2.png.asset.json";
-import desktop3 from "@/assets/screens/desktop-3.png.asset.json";
+import mobile1 from "@/assets/screens/mobile-1.jpg";
+import mobile2 from "@/assets/screens/mobile-2.jpg";
+import mobile3 from "@/assets/screens/mobile-3.jpg";
+import mobile4 from "@/assets/screens/mobile-4.jpg";
+import mobile5 from "@/assets/screens/mobile-5.jpg";
+import mobile6 from "@/assets/screens/mobile-6.jpg";
+import mobile7 from "@/assets/screens/mobile-7.jpg";
+import desktop1 from "@/assets/screens/desktop-1.png";
+import desktop2 from "@/assets/screens/desktop-2.png";
+import desktop3 from "@/assets/screens/desktop-3.png";
 
 /**
  * Liens de téléchargement.
@@ -96,20 +96,20 @@ export type Screenshot = { src: string; alt: string; label: string };
 
 /** Captures mobiles — remplacez simplement les pointeurs d'assets. */
 export const mobileScreenshots: Screenshot[] = [
-  { src: mobile3.url, alt: "Écran d'accueil / réception d'Aika", label: "Accueil" },
-  { src: mobile2.url, alt: "Écran d'envoi de fichiers d'Aika", label: "Envoi" },
-  { src: mobile1.url, alt: "Écran de réception d'Aika en mode sombre", label: "Réception" },
-  { src: mobile4.url, alt: "Messagerie locale d'Aika", label: "Messagerie locale" },
-  { src: mobile7.url, alt: "Liste des conversations locales d'Aika", label: "Conversations" },
-  { src: mobile5.url, alt: "Paramètres d'Aika en mode clair", label: "Paramètres" },
-  { src: mobile6.url, alt: "Paramètres d'Aika en mode sombre", label: "Mode sombre" },
+  { src: mobile3, alt: "Écran d'accueil / réception d'Aika", label: "Accueil" },
+  { src: mobile2, alt: "Écran d'envoi de fichiers d'Aika", label: "Envoi" },
+  { src: mobile1, alt: "Écran de réception d'Aika en mode sombre", label: "Réception" },
+  { src: mobile4, alt: "Messagerie locale d'Aika", label: "Messagerie locale" },
+  { src: mobile7, alt: "Liste des conversations locales d'Aika", label: "Conversations" },
+  { src: mobile5, alt: "Paramètres d'Aika en mode clair", label: "Paramètres" },
+  { src: mobile6, alt: "Paramètres d'Aika en mode sombre", label: "Mode sombre" },
 ];
 
 /** Captures ordinateur. */
 export const desktopScreenshots: Screenshot[] = [
-  { src: desktop1.url, alt: "Aika sur ordinateur", label: "Windows" },
-  { src: desktop2.url, alt: "Aika sur ordinateur, sélection des appareils", label: "Linux" },
-  { src: desktop3.url, alt: "Messagerie locale d'Aika sur ordinateur", label: "macOS" },
+  { src: desktop1, alt: "Aika sur ordinateur", label: "Windows" },
+  { src: desktop2, alt: "Aika sur ordinateur, sélection des appareils", label: "Linux" },
+  { src: desktop3, alt: "Messagerie locale d'Aika sur ordinateur", label: "macOS" },
 ];
 
 export const navLinks = [

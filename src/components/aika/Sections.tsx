@@ -23,14 +23,8 @@ import {
 } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { PhoneFrame, LaptopFrame } from "./Mockups";
-import {
-  mobileScreenshots,
-  desktopScreenshots,
-  platforms,
-  site,
-  navLinks,
-} from "@/config/site";
-import logoAsset from "@/assets/aika-logo.png.asset.json";
+import { mobileScreenshots, desktopScreenshots, platforms, site, navLinks } from "@/config/site";
+import logoSrc from "@/assets/aika-logo.png";
 
 function SectionTitle({
   eyebrow,
@@ -160,16 +154,48 @@ export function HowItWorks() {
 /* ---------------------------- FONCTIONNALITÉS ---------------------------- */
 
 const features = [
-  { icon: Zap, title: "Transfert rapide", text: "Transférez vos fichiers directement entre appareils sur votre réseau local." },
-  { icon: WifiOff, title: "Fonctionnement hors ligne", text: "Aika peut fonctionner sans connexion Internet." },
+  {
+    icon: Zap,
+    title: "Transfert rapide",
+    text: "Transférez vos fichiers directement entre appareils sur votre réseau local.",
+  },
+  {
+    icon: WifiOff,
+    title: "Fonctionnement hors ligne",
+    text: "Aika peut fonctionner sans connexion Internet.",
+  },
   { icon: Smartphone, title: "Multiplateforme", text: "Android, iOS, Windows, macOS et Linux." },
-  { icon: Link2, title: "Connexion intelligente", text: "Découvrez facilement les appareils disponibles." },
-  { icon: QrCode, title: "QR Code intelligent", text: "Connectez rapidement deux appareils grâce au scan d'un QR Code." },
-  { icon: ShieldCheck, title: "Sécurité", text: "Les transferts restent directement entre les appareils concernés." },
-  { icon: FolderOpen, title: "Partage de fichiers", text: "Photos, vidéos, documents, dossiers et autres fichiers." },
-  { icon: MessageSquare, title: "Messagerie locale", text: "Communiquez avec les appareils du même réseau local, sans Internet." },
+  {
+    icon: Link2,
+    title: "Connexion intelligente",
+    text: "Découvrez facilement les appareils disponibles.",
+  },
+  {
+    icon: QrCode,
+    title: "QR Code intelligent",
+    text: "Connectez rapidement deux appareils grâce au scan d'un QR Code.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Sécurité",
+    text: "Les transferts restent directement entre les appareils concernés.",
+  },
+  {
+    icon: FolderOpen,
+    title: "Partage de fichiers",
+    text: "Photos, vidéos, documents, dossiers et autres fichiers.",
+  },
+  {
+    icon: MessageSquare,
+    title: "Messagerie locale",
+    text: "Communiquez avec les appareils du même réseau local, sans Internet.",
+  },
   { icon: Users, title: "Groupes", text: "Partagez et communiquez avec plusieurs appareils." },
-  { icon: RefreshCw, title: "Reprise des transferts", text: "Reprenez un transfert interrompu lorsque cela est supporté." },
+  {
+    icon: RefreshCw,
+    title: "Reprise des transferts",
+    text: "Reprenez un transfert interrompu lorsque cela est supporté.",
+  },
 ];
 
 export function Features() {
@@ -355,11 +381,31 @@ export function WhyAika() {
 /* ----------------------------- CAS D'UTILISATION ----------------------------- */
 
 const useCases = [
-  { icon: GraduationCap, title: "Étudiants", text: "Partager des cours, PDF, projets et supports pédagogiques." },
-  { icon: Building2, title: "Entreprises", text: "Partager rapidement des documents entre collaborateurs sur un réseau interne." },
-  { icon: School, title: "Établissements", text: "Faciliter les échanges de fichiers dans les environnements à connectivité limitée." },
-  { icon: Code2, title: "Développeurs", text: "Transférer rapidement des fichiers entre ordinateurs et smartphones." },
-  { icon: Home, title: "Usage personnel", text: "Partager photos, vidéos et documents entre ses appareils." },
+  {
+    icon: GraduationCap,
+    title: "Étudiants",
+    text: "Partager des cours, PDF, projets et supports pédagogiques.",
+  },
+  {
+    icon: Building2,
+    title: "Entreprises",
+    text: "Partager rapidement des documents entre collaborateurs sur un réseau interne.",
+  },
+  {
+    icon: School,
+    title: "Établissements",
+    text: "Faciliter les échanges de fichiers dans les environnements à connectivité limitée.",
+  },
+  {
+    icon: Code2,
+    title: "Développeurs",
+    text: "Transférer rapidement des fichiers entre ordinateurs et smartphones.",
+  },
+  {
+    icon: Home,
+    title: "Usage personnel",
+    text: "Partager photos, vidéos et documents entre ses appareils.",
+  },
 ];
 
 export function UseCases() {
@@ -412,19 +458,27 @@ export function Offline() {
                   <stop offset="100%" stopColor="var(--color-teal)" />
                 </linearGradient>
               </defs>
-              {[
-                "M120 60 L300 130",
-                "M480 60 L300 130",
-                "M120 60 L480 60",
-                "M300 130 L300 200",
-              ].map((d, i) => (
-                <g key={d}>
-                  <path d={d} stroke="url(#aika-line)" strokeOpacity="0.3" strokeWidth="1.5" fill="none" />
-                  <circle r="4" fill="url(#aika-line)">
-                    <animateMotion dur="3.4s" begin={`${i * 0.6}s`} repeatCount="indefinite" path={d} />
-                  </circle>
-                </g>
-              ))}
+              {["M120 60 L300 130", "M480 60 L300 130", "M120 60 L480 60", "M300 130 L300 200"].map(
+                (d, i) => (
+                  <g key={d}>
+                    <path
+                      d={d}
+                      stroke="url(#aika-line)"
+                      strokeOpacity="0.3"
+                      strokeWidth="1.5"
+                      fill="none"
+                    />
+                    <circle r="4" fill="url(#aika-line)">
+                      <animateMotion
+                        dur="3.4s"
+                        begin={`${i * 0.6}s`}
+                        repeatCount="indefinite"
+                        path={d}
+                      />
+                    </circle>
+                  </g>
+                ),
+              )}
               {[
                 { cx: 120, cy: 60 },
                 { cx: 480, cy: 60 },
@@ -492,7 +546,7 @@ export function Footer() {
           <div className="max-w-sm">
             <div className="flex items-center gap-2">
               <img
-                src={logoAsset.url}
+                src={logoSrc}
                 alt=""
                 width={40}
                 height={40}

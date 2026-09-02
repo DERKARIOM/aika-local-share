@@ -1,0 +1,16 @@
+{
+  "name": "Aika",
+  "short_name": "Aika",
+  "description": "Aika transfère vos fichiers entre appareils proches, directement sur votre réseau local, sans Internet.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#10b981",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    }
+  ]
+}

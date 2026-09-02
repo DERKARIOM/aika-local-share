@@ -1,591 +1,125 @@
-# Aika: Share Simply
+# Aika — Site web
 
-Je souhaite créer le site web vitrine officiel de mon application appelée « Aika ».
+Site vitrine officiel de **Aika**, une application de transfert et de partage
+de fichiers entre appareils proches, directement sur le réseau local, sans
+Internet.
 
-Aika est une application moderne de transfert et de partage de fichiers entre appareils, fonctionnant principalement sur le réseau local, sans nécessiter Internet. Le projet est basé sur une technologie open source de transfert local et évolue avec sa propre identité, son interface et ses fonctionnalités.
+Le site est déployé en tant que site 100 % statique sur **GitHub Pages**, sur
+le domaine [naniger.com](https://naniger.com).
 
-L'objectif du site est de présenter Aika de manière professionnelle, moderne et crédible, expliquer sa vision, présenter ses fonctionnalités et permettre aux visiteurs de télécharger l'application sur leurs différentes plateformes.
+## Stack technique
 
-IMPORTANT :
-Le site doit avoir sa propre identité visuelle. Ne pas copier le design de WhatsApp. Utilise uniquement le site officiel de WhatsApp comme inspiration concernant la qualité de présentation, la simplicité, la hiérarchie visuelle, les animations et la mise en avant du produit.
+- [TanStack Start](https://tanstack.com/start) (React 19) + [TanStack Router](https://tanstack.com/router) — routage basé sur les fichiers
+- [Vite](https://vitejs.dev) 8 — build, avec [Nitro](https://nitro.build) (preset `node-server`) pour générer une coquille statique pré-rendue
+- [Tailwind CSS v4](https://tailwindcss.com) + [shadcn/ui](https://ui.shadcn.com) (style « new-york ») + [Radix UI](https://www.radix-ui.com)
+- Aucune donnée dynamique : pas d'appel API, pas de fonction serveur, pas de
+  variable d'environnement — tout le contenu est statique et centralisé dans
+  [`src/config/site.ts`](./src/config/site.ts)
 
-Site de référence :
-WhatsApp | Messages et appels privés, gratuits, sûrs et fiables
+Le projet a été initialement généré avec [Lovable](https://lovable.dev), puis
+rendu totalement indépendant : plus aucune dépendance à Lovable (build,
+hébergement, assets ou branding) n'est nécessaire pour cloner, développer ou
+déployer ce site.
 
-==================================================
+## Installation
 
-IDENTITÉ DE AIKA
-==================================================
+```bash
+npm install
+```
 
-Nom : Aika
+## Développement local
 
-Positionnement :
-
-« Le partage de fichiers, simplement. »
-
-Aika permet de transférer rapidement des fichiers entre appareils proches, directement sur le réseau local, sans dépendre d'une connexion Internet.
-
-Valeurs :
-
-Simplicité
-
-Rapidité
-
-Sécurité
-
-Confidentialité
-
-Accessibilité
-
-Fonctionnement hors ligne
-
-Créer une identité visuelle technologique, moderne et premium.
-
-Utiliser principalement une palette :
-
-Vert moderne / émeraude
-
-Turquoise
-
-Blanc
-
-Noir / gris très foncé
-
-Le design doit fonctionner parfaitement en mode clair et sombre.
-
-==================================================
-2. PAGE D'ACCUEIL
-
-Créer une Hero Section très moderne.
-
-Titre principal :
-
-« Transférez. Partagez. Connectez. »
-
-Sous-titre :
-
-« Aika vous permet de partager vos fichiers rapidement entre vos appareils, directement sur votre réseau local, sans Internet. »
-
-Ajouter deux CTA principaux :
-
-[ Télécharger Aika ]
-
-[ Découvrir Aika ]
-
-Ajouter à côté une grande présentation visuelle de l'application avec :
-
-aperçu d'un smartphone Android ;
-
-aperçu d'un ordinateur Windows/macOS/Linux ;
-
-interface Aika visible ;
-
-animation légère montrant un transfert de fichier entre les appareils.
-
-L'animation doit être élégante et légère, pas excessive.
-
-==================================================
-3. SECTION VISION
-
-Créer une section intitulée :
-
-« Notre vision »
-
-Texte :
-
-« Nous croyons que le partage de fichiers ne devrait pas dépendre d'une connexion Internet. Aika a pour ambition de rendre le transfert de données simple, rapide et accessible, même dans les environnements où la connectivité est limitée. »
-
-Mettre en avant :
-
-🌐 Sans Internet
-⚡ Rapide
-🔐 Sécurisé
-📱 Multiplateforme
-
-==================================================
-4. SECTION COMMENT ÇA MARCHE
-
-Créer une section :
-
-« Comment ça marche ? »
-
-Présenter le fonctionnement en 3 étapes :
-
-01 — Connectez vos appareils
-
-Les appareils présents sur le même réseau local sont automatiquement détectés.
-
-02 — Sélectionnez vos fichiers
-
-Choisissez les photos, vidéos, documents ou autres fichiers à envoyer.
-
-03 — Transférez
-
-Envoyez vos fichiers rapidement et directement entre vos appareils.
-
-Ajouter également une présentation du système de QR Code intelligent :
-
-« Connectez-vous instantanément grâce au QR Code. »
-
-Expliquer que l'utilisateur peut utiliser le QR Code pour faciliter l'appairage entre deux appareils.
-
-==================================================
-5. FONCTIONNALITÉS
-
-Créer une grande section :
-
-« Tout ce dont vous avez besoin pour partager »
-
-Présenter les fonctionnalités sous forme de cartes modernes avec illustrations/icônes.
-
-Fonctionnalités :
-
-⚡ Transfert rapide
-
-Transférez vos fichiers directement entre appareils sur votre réseau local.
-
-📡 Fonctionnement hors ligne
-
-Aika peut fonctionner sans connexion Internet.
-
-📱 Multiplateforme
-
-Android, iOS, Windows, macOS et Linux.
-
-🔗 Connexion intelligente
-
-Découvrez facilement les appareils disponibles.
-
-📷 QR Code intelligent
-
-Connectez rapidement deux appareils grâce au scan d'un QR Code.
-
-🔐 Sécurité
-
-Les transferts restent directement entre les appareils concernés.
-
-📂 Partage de fichiers
-
-Photos, vidéos, documents, dossiers et autres fichiers.
-
-💬 Messagerie locale
-
-Communiquez avec les appareils connectés au même réseau local, sans Internet.
-
-👥 Groupes
-
-Partagez et communiquez avec plusieurs appareils.
-
-🔄 Reprise des transferts
-
-Permettre la reprise d'un transfert interrompu lorsque cela est supporté.
-
-==================================================
-6. SECTION APERÇUS DE L'APPLICATION
-
-Créer une section très visuelle :
-
-« Découvrez Aika »
-
-Afficher plusieurs screenshots réalistes dans des mockups :
-
-Mobile :
-
-écran d'accueil ;
-
-écran d'envoi ;
-
-écran de réception ;
-
-écran de sélection des appareils ;
-
-QR Code ;
-
-messagerie locale.
-
-Desktop :
-
-Windows ;
-
-macOS ;
-
-Linux.
-
-Utiliser des mockups modernes de smartphones et ordinateurs.
-
-Ajouter des animations lors du scroll.
-
-IMPORTANT :
-Prévoir une architecture permettant de remplacer facilement les images/screenshots par les vrais screenshots de l'application ultérieurement.
-
-==================================================
-7. SECTION TÉLÉCHARGEMENT
-
-Créer une section très importante :
-
-« Disponible partout »
-
-Présenter les plateformes sous forme de cartes.
-
-ANDROID
-
-Google Play Store
-
-Bouton :
-« Télécharger sur Google Play »
-
-Prévoir un emplacement pour le lien officiel Play Store.
-
-IOS
-
-Apple App Store
-
-Bouton :
-« Télécharger sur l'App Store »
-
-Prévoir un emplacement pour le lien officiel App Store.
-
-WINDOWS
-
-Téléchargement direct
-
-Format :
-.exe
-
-Bouton :
-« Télécharger pour Windows »
-
-Prévoir un emplacement pour le lien du fichier .exe.
-
-MACOS
-
-Téléchargement direct
-
-Format :
-.img
-
-Bouton :
-« Télécharger pour macOS »
-
-Prévoir un emplacement pour le fichier.
-
-LINUX
-
-Téléchargement
-
-Format :
-.deb
-
-Bouton :
-« Télécharger pour Linux »
-
-Prévoir un emplacement pour le fichier .deb.
-
-IMPORTANT :
-
-Ne mets aucun faux lien.
-
-Utiliser des placeholders clairement identifiés dans le code, par exemple :
-
-PLAY_STORE_URL
-APP_STORE_URL
-WINDOWS_DOWNLOAD_URL
-MACOS_DOWNLOAD_URL
-LINUX_DOWNLOAD_URL
-
-Je pourrai ensuite remplacer ces valeurs.
-
-Ajouter également :
-
-« Aika est disponible sur vos appareils préférés. »
-
-==================================================
-8. SECTION POURQUOI AIKA ?
-
-Créer une section comparative simple :
-
-« Pourquoi utiliser Aika ? »
-
-Mettre en avant :
-
-Pas besoin d'Internet
-
-Pas besoin de câble
-
-Pas besoin de compte
-
-Transfert direct
-
-Multiplateforme
-
-Interface simple
-
-Respect de la confidentialité
-
-Créer une présentation visuelle très élégante.
-
-==================================================
-9. SECTION CAS D'UTILISATION
-
-Créer une section :
-
-« Pensé pour votre quotidien »
-
-Présenter plusieurs scénarios :
-
-🎓 Étudiants
-
-Partager des cours, PDF, projets et supports pédagogiques.
-
-🏢 Entreprises
-
-Partager rapidement des documents entre collaborateurs sur un réseau interne.
-
-🏫 Établissements
-
-Faciliter les échanges de fichiers dans les environnements à connectivité limitée.
-
-👨‍💻 Développeurs
-
-Transférer rapidement des fichiers entre ordinateurs et smartphones.
-
-🏠 Usage personnel
-
-Partager photos, vidéos et documents entre ses appareils.
-
-==================================================
-10. SECTION HORS LIGNE
-
-Créer une section visuellement forte autour du concept :
-
-« Même sans Internet. »
-
-Afficher plusieurs appareils connectés directement entre eux.
-
-Ajouter une animation subtile représentant les données qui circulent entre les appareils.
-
-Texte :
-
-« Aika est conçu pour fonctionner là où Internet n'est pas toujours disponible. »
-
-==================================================
-11. SECTION OPEN SOURCE / RECHERCHE
-
-Créer une section transparente concernant le projet.
-
-Titre :
-
-« Un projet technologique et académique »
-
-Texte :
-
-« Aika est développé dans le cadre d'un travail de recherche en Informatique Fondamentale et Appliquée, avec pour objectif d'étudier et d'améliorer les mécanismes de transfert de données entre appareils sur des réseaux locaux. »
-
-Ajouter une présentation :
-
-Auteur :
-« Bachir Abdoul Kader »
-
-Mention :
-
-« Projet réalisé dans le cadre de son mémoire de Master en Informatique Fondamentale et Appliquée. »
-
-Ne pas présenter cette section comme une entreprise ou une équipe fictive.
-
-==================================================
-12. SECTION FOOTER
-
-Créer un footer moderne.
-
-Logo Aika.
-
-Liens :
-
-Accueil
-
-Fonctionnalités
-
-Vision
-
-Téléchargements
-
-À propos
-
-GitHub
-
-Contact
-
-Ajouter :
-
-« © 2026 Aika. Tous droits réservés. »
-
-Ajouter éventuellement :
-
-« Projet académique — Master Informatique Fondamentale et Appliquée »
-
-==================================================
-13. DESIGN
-
-Le design doit être :
-
-très moderne ;
-
-professionnel ;
-
-minimaliste ;
-
-premium ;
-
-rapide ;
-
-responsive ;
-
-accessible ;
-
-adapté mobile, tablette et desktop.
-
-S'inspirer de la qualité UX de WhatsApp, Apple, Google et Linear, mais créer une identité visuelle originale pour Aika.
-
-Utiliser :
-
-grandes typographies ;
-
-beaucoup d'espace blanc ;
-
-cartes arrondies ;
-
-gradients subtils ;
-
-animations au scroll ;
-
-micro-interactions ;
-
-transitions fluides ;
-
-mockups réalistes ;
-
-icônes cohérentes.
-
-Éviter :
-
-effets 3D excessifs ;
-
-animations lourdes ;
-
-couleurs trop nombreuses ;
-
-interfaces surchargées ;
-
-faux témoignages ;
-
-faux utilisateurs ;
-
-fausses statistiques.
-
-==================================================
-14. PERFORMANCE ET SEO
-
-Optimiser le site pour :
-
-Google Lighthouse ;
-
-Core Web Vitals ;
-
-SEO ;
-
-accessibilité ;
-
-mobile-first ;
-
-chargement rapide.
-
-Ajouter :
-
-favicon Aika ;
-
-Open Graph ;
-
-meta description ;
-
-titre SEO ;
-
-données structurées lorsque pertinent.
-
-Prévoir également une bonne gestion des images :
-
-WebP/AVIF ;
-
-lazy loading ;
-
-responsive images.
-
-==================================================
-15. ARCHITECTURE
-
-Créer une architecture propre et facilement maintenable.
-
-Les informations suivantes doivent être centralisées dans une configuration :
-
-liens Play Store ;
-
-lien App Store ;
-
-lien Windows ;
-
-lien macOS ;
-
-lien Linux ;
-
-lien GitHub ;
-
-version actuelle ;
-
-screenshots ;
-
-informations de contact.
-
-Ainsi, je pourrai modifier les liens et les versions sans devoir parcourir tout le projet.
-
-==================================================
-16. IMPORTANT
-
-Avant de commencer le développement :
-
-Analyse la structure du projet.
-
-Propose l'architecture du site.
-
-Propose la structure des pages et sections.
-
-Identifie les composants réutilisables.
-
-Explique brièvement tes choix UI/UX.
-
-Ensuite, implémente le site complet.
-
-Le résultat final doit donner l'impression d'un véritable produit technologique international et non d'un simple projet étudiant.
-
-L'expérience doit être suffisamment professionnelle pour présenter Aika à des utilisateurs, des entreprises, des établissements universitaires et des partenaires.
-
-This project was built with [Lovable](https://lovable.dev).
-
-**Live app**: https://aika-local-share.lovable.app
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/5ff4b7db-0a33-4e1e-bbda-52fec69ec373).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+```bash
 npm run dev
 ```
+
+Le site est servi sur [http://localhost:8080](http://localhost:8080).
+
+## Build de production
+
+```bash
+npm run build
+```
+
+Génère un site 100 % statique dans `.output/public/` :
+
+- `index.html` — servie pour `/`
+- `404.html` — servie par GitHub Pages pour toute URL inconnue, ce qui permet
+  au routeur client de prendre le relais
+- `.nojekyll` — empêche GitHub Pages de traiter le dossier avec Jekyll
+- `sitemap.xml`, `robots.txt`, `manifest.json`, `og-image.png`, `favicon.png`
+  — copiés depuis `public/`
+- `CNAME` — contient `naniger.com`, requis par GitHub Pages pour le domaine personnalisé
+
+Pour prévisualiser le build localement :
+
+```bash
+npx vite preview
+```
+
+## Qualité du code
+
+```bash
+npm run lint      # ESLint (+ règles Prettier)
+npx tsc --noEmit  # vérification des types
+npm audit         # vulnérabilités des dépendances
+```
+
+## Déploiement — GitHub Pages
+
+Le déploiement est automatisé par GitHub Actions
+([`.github/workflows/deploy.yml`](./.github/workflows/deploy.yml)) : à chaque
+push sur `main`, le workflow installe les dépendances, exécute le lint, vérifie
+les types, construit le site, puis publie `.output/public/` sur GitHub Pages.
+
+Configuration nécessaire côté GitHub (une seule fois, manuellement) :
+
+1. **Settings → Pages → Source** : sélectionner **GitHub Actions** (pas
+   « Deploy from a branch »).
+2. **Settings → Pages → Custom domain** : renseigner `naniger.com`, puis
+   cocher **Enforce HTTPS** une fois le certificat émis par GitHub (peut
+   prendre jusqu'à 24 h après la configuration DNS).
+
+Le fichier `public/CNAME` (copié tel quel dans le build) précise déjà le
+domaine à GitHub Pages ; le champ « Custom domain » ci-dessus doit simplement
+correspondre à la même valeur.
+
+## Configuration du domaine (naniger.com)
+
+Les enregistrements DNS à créer chez le fournisseur (LWS) sont documentés
+séparément — voir `DNS.md` — et n'ont **pas** été appliqués automatiquement :
+la configuration DNS reste une action manuelle, à effectuer et vérifier par
+vous-même chez votre fournisseur.
+
+## Variables d'environnement
+
+Aucune. Le site est entièrement statique et ne lit aucune variable
+d'environnement ni clé API.
+
+## Structure du projet
+
+```
+src/
+  assets/           images du site (logo, captures d'écran)
+  components/
+    aika/           sections de la page d'accueil (Hero, Vision, Footer, …)
+    ui/             composants shadcn/ui génériques
+  config/site.ts     configuration centrale (liens de téléchargement, contact, version, captures d'écran)
+  routes/            routes TanStack Router (basées sur les fichiers)
+  styles.css         styles globaux Tailwind
+  start.ts           configuration serveur TanStack Start (middleware CSRF + gestion d'erreurs)
+public/              fichiers statiques copiés tels quels (favicon, robots.txt, sitemap.xml, manifest.json, og-image.png, CNAME)
+scripts/
+  finalize-static-build.mjs   finalise le build pour GitHub Pages (index.html / 404.html / .nojekyll)
+.github/workflows/deploy.yml  build + déploiement automatique sur GitHub Pages
+```
+
+## Modifier le contenu du site
+
+La quasi-totalité des informations modifiables (liens de téléchargement,
+e-mail de contact, version affichée, captures d'écran) est centralisée dans
+[`src/config/site.ts`](./src/config/site.ts). Pour le reste, chaque section
+de la page d'accueil est un composant dédié dans
+[`src/components/aika/Sections.tsx`](./src/components/aika/Sections.tsx) (et
+[`Hero.tsx`](./src/components/aika/Hero.tsx),
+[`Header.tsx`](./src/components/aika/Header.tsx)).

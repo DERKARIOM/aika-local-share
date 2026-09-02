@@ -1,10 +1,17 @@
-<!-- LOVABLE:BEGIN -->
-> [!IMPORTANT]
-> This project is connected to [Lovable](https://lovable.dev). Avoid rewriting
-> published git history — force pushing, or rebasing/amending/squashing commits
-> that are already pushed — as it rewrites history on Lovable's side and the
-> user will likely lose their project history.
->
-> Commits you push to the connected branch sync back to Lovable and show up in
-> the editor, so keep the branch in a working state.
-<!-- LOVABLE:END -->
+# Aika — site web
+
+Site vitrine officiel du projet Aika (TanStack Start + Tailwind CSS v4),
+déployé en tant que site 100 % statique sur GitHub Pages, domaine
+`naniger.com`.
+
+## Notes pour un futur agent / contributeur
+
+- Le routage est basé sur les fichiers (TanStack Router) : voir
+  `src/routes/README.md` pour les conventions.
+- Toutes les informations modifiables (liens de téléchargement, contact,
+  version, screenshots) sont centralisées dans `src/config/site.ts` —
+  modifiez uniquement ce fichier plutôt que de chercher les valeurs dans les
+  composants.
+- `npm run build` produit un site 100 % statique dans `.output/public/`
+  (voir `scripts/finalize-static-build.mjs`) : aucun serveur n'est requis en
+  production.
