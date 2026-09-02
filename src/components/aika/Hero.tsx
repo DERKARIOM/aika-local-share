@@ -1,6 +1,7 @@
 import { ArrowRight, Download } from "lucide-react";
 import { PhoneFrame, LaptopFrame } from "./Mockups";
-import { mobileScreenshots, desktopScreenshots } from "@/config/site";
+import { desktopScreenshots } from "@/config/site";
+import heroMobileAsset from "@/assets/aika-hero-mobile.jpg.asset.json";
 
 /** Animation légère : paquets de données circulant entre le mobile et l'ordinateur. */
 function TransferLink() {
@@ -41,8 +42,9 @@ function TransferLink() {
 }
 
 export function Hero() {
-  const phone = mobileScreenshots[0]!;
-  const laptop = desktopScreenshots[0]!;
+  const laptop = desktopScreenshots[0];
+
+  if (!laptop) return null;
 
   return (
     <section id="accueil" className="relative overflow-hidden pt-28 pb-16 sm:pt-36 sm:pb-24">
@@ -90,8 +92,8 @@ export function Hero() {
               className="ml-auto w-[88%]"
             />
             <PhoneFrame
-              src={phone.src}
-              alt={phone.alt}
+              src={heroMobileAsset.url}
+              alt="Interface de réception Aika sur Android"
               priority
               className="animate-float absolute -bottom-10 left-0 w-[38%] max-w-[190px]"
             />
