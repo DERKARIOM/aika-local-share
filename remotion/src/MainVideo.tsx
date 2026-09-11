@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill } from "remotion";
+import { AbsoluteFill, Audio, Sequence, staticFile } from "remotion";
 import { TransitionSeries, linearTiming } from "@remotion/transitions";
 import { fade } from "@remotion/transitions/fade";
 import { S1Intro } from "./scenes/S1Intro";
@@ -31,8 +31,20 @@ export const TRANSITION = 20;
 export const TOTAL =
   SCENES.reduce((a, s) => a + s.d, 0) - TRANSITION * (SCENES.length - 1);
 
+const VO_DELAY = 12;
+
+export const SCENE_STARTS = SCENES.map(
+  (_, i) =>
+    SCENES.slice(0, i).reduce((a, s) => a + s.d, 0) - TRANSITION * i,
+);
+
 export const MainVideo: React.FC = () => (
   <AbsoluteFill style={{ backgroundColor: C.bg }}>
+    {SCENE_STARTS.map((start, i) => (
+      <Sequence key={`vo-${i}`} from={start + VO_DELAY}>
+        <Audio src={staticFile(`vo/s${i + 1}.mp3`)} volume={1} />
+      </Sequence>
+    ))}
     <TransitionSeries>
       {SCENES.map(({ c: Comp, d }, i) => (
         <React.Fragment key={i}>
