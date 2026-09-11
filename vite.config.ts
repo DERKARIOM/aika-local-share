@@ -41,7 +41,7 @@ export default defineConfig({
     // projet). Le serveur Node généré n'est jamais exécuté en production :
     // seul .output/public/ (complété par scripts/finalize-static-build.mjs
     // avec index.html, 404.html et .nojekyll) est déployé sur GitHub Pages.
-    nitro({ preset: process.env.GITHUB_ACTIONS ? "node-server" : "cloudflare_module" }),
+    nitro({ preset: "node-server" }),
     viteReact(),
   ],
 });
