@@ -24,11 +24,12 @@ import desktop3 from "@/assets/screens/desktop-3.png";
 export const DOWNLOAD_LINKS = {
   PLAY_STORE_URL: null as string | null,
   APP_STORE_URL: null as string | null,
-  WINDOWS_DOWNLOAD_URL: "/downloads/Aika-1.0.1-Windows.exe" as string | null,
-  // Le .dmg (52 Mo) dépasse la taille maximale d'un fichier hébergé :
-  // publiez-le sur une release GitHub et collez l'URL ici.
+  // Les installateurs (.exe ~19 Mo, .deb ~18 Mo, .dmg ~52 Mo) dépassent
+  // la taille maximale d'un fichier hébergé par le build statique.
+  // Publiez-les sur une release GitHub et collez les URL publiques ici.
+  WINDOWS_DOWNLOAD_URL: null as string | null,
   MACOS_DOWNLOAD_URL: null as string | null,
-  LINUX_DOWNLOAD_URL: "/downloads/Aika-1.0.1-Linux.deb" as string | null,
+  LINUX_DOWNLOAD_URL: null as string | null,
 };
 
 export const GITHUB_URL: string | null = null; // ex: "https://github.com/…"
