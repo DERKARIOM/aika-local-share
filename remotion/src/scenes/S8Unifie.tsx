@@ -36,7 +36,7 @@ export const S8Unifie: React.FC = () => {
         }}
       >
         <Phone screen={SCREENS.receive} width={wide ? 250 : 300} />
-        <Laptop screen={SCREENS.messages} width={wide ? 600 : 660} />
+        <Laptop screen={SCREENS.desktop} width={wide ? 600 : 660} />
       </AbsoluteFill>
       <AbsoluteFill
         style={{

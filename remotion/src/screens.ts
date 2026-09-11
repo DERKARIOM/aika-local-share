@@ -6,4 +6,6 @@ export const SCREENS = {
   messages: "screens/crop-screenshot_2_messages.png",
   list: "screens/crop-screenshot_3_list.png",
   settings: "screens/crop-screenshot_4_settings.png",
+  /** Capture officielle de l'application de bureau Aika (1876 x 1150). */
+  desktop: "screens/desktop-receive.png",
 };

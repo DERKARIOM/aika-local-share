@@ -37,7 +37,7 @@ export const S6Transfert: React.FC = () => {
         }}
       >
         <Phone screen={SCREENS.transfer} width={wide ? 330 : 430} />
-        <Laptop screen={SCREENS.list} width={wide ? 620 : 700} />
+        <Laptop screen={SCREENS.desktop} width={wide ? 620 : 700} />
       </AbsoluteFill>
       <AbsoluteFill
         style={{ alignItems: "center", justifyContent: "flex-end", paddingBottom: wide ? 46 : 150 }}

@@ -36,7 +36,7 @@ export const S4PhoneToPc: React.FC = () => {
           }}
         >
           <Phone screen={SCREENS.send} width={wide ? 260 : 340} />
-          <Laptop screen={SCREENS.messages} width={wide ? 700 : 760} />
+          <Laptop screen={SCREENS.desktop} width={wide ? 700 : 760} />
         </AbsoluteFill>
       </AbsoluteFill>
       <AbsoluteFill
