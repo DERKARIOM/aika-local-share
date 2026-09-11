@@ -56,7 +56,8 @@ export const Laptop: React.FC<{
   width: number;
   style?: React.CSSProperties;
 }> = ({ screen, width, style }) => {
-  const screenH = width * 0.62;
+  // Ratio réel de la capture d'écran de bureau Aika (1876 x 1150).
+  const screenH = width * 0.613 + width * 0.024;
   return (
     <div style={{ width, ...style }}>
       <div
@@ -76,46 +77,27 @@ export const Laptop: React.FC<{
             borderRadius: width * 0.018,
             overflow: "hidden",
             background: "#080D0F",
-            display: "flex",
-            flexDirection: "column",
+            position: "relative",
           }}
         >
+          <Img
+            src={staticFile(screen)}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              display: "block",
+            }}
+          />
           <div
             style={{
-              height: screenH * 0.075,
-              display: "flex",
-              alignItems: "center",
-              gap: width * 0.008,
-              padding: `0 ${width * 0.016}px`,
-              background: "#0D1417",
+              position: "absolute",
+              inset: 0,
+              background:
+                "linear-gradient(115deg, rgba(255,255,255,.07) 0%, rgba(255,255,255,0) 35%, rgba(255,255,255,0) 70%, rgba(255,255,255,.04) 100%)",
+              pointerEvents: "none",
             }}
-          >
-            {[0.25, 0.18, 0.13].map((o, i) => (
-              <span
-                key={i}
-                style={{
-                  width: width * 0.011,
-                  height: width * 0.011,
-                  borderRadius: 999,
-                  background: `rgba(255,255,255,${o})`,
-                }}
-              />
-            ))}
-          </div>
-          <div
-            style={{
-              flex: 1,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              background: "radial-gradient(60% 80% at 50% 40%, #0E181A 0%, #070C0E 100%)",
-            }}
-          >
-            <Img
-              src={staticFile(screen)}
-              style={{ height: "88%", borderRadius: width * 0.012, display: "block" }}
-            />
-          </div>
+          />
         </div>
       </div>
       <div
