@@ -25,7 +25,9 @@ export const DOWNLOAD_LINKS = {
   PLAY_STORE_URL: null as string | null,
   APP_STORE_URL: null as string | null,
   WINDOWS_DOWNLOAD_URL: "/downloads/Aika-1.0.1-Windows.exe" as string | null,
-  MACOS_DOWNLOAD_URL: "/downloads/Aika-1.0.1-macOS.dmg" as string | null,
+  // Le .dmg (52 Mo) dépasse la taille maximale d'un fichier hébergé :
+  // publiez-le sur une release GitHub et collez l'URL ici.
+  MACOS_DOWNLOAD_URL: null as string | null,
   LINUX_DOWNLOAD_URL: "/downloads/Aika-1.0.1-Linux.deb" as string | null,
 };
 
