@@ -9,7 +9,7 @@
 //                   pour afficher la vraie page "introuvable" de l'app).
 // Il ajoute aussi .nojekyll, pour que GitHub Pages ne traite pas le dossier
 // avec Jekyll (qui ignore par défaut certains fichiers/dossiers).
-import { copyFile, writeFile } from "node:fs/promises";
+import { copyFile, cp, mkdir, rm, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 
@@ -27,6 +27,14 @@ await copyFile(shell, join(publicDir, "index.html"));
 await copyFile(shell, join(publicDir, "404.html"));
 await writeFile(join(publicDir, ".nojekyll"), "");
 
+// Lovable's preview validator expects a conventional `dist/` directory.
+// Keep `.output/public/` as the GitHub Pages artifact and mirror the same
+// static files into `dist/` so both deployment targets receive the site.
+const distDir = join(process.cwd(), "dist");
+await rm(distDir, { recursive: true, force: true });
+await mkdir(distDir, { recursive: true });
+await cp(publicDir, distDir, { recursive: true });
+
 console.log(
-  "[finalize-static-build] index.html, 404.html et .nojekyll écrits dans .output/public/",
+  "[finalize-static-build] site statique écrit dans .output/public/ et dist/",
 );
