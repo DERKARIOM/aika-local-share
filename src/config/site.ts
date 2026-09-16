@@ -24,14 +24,14 @@ import desktop3 from "@/assets/screens/desktop-3.png";
 export const DOWNLOAD_LINKS = {
   PLAY_STORE_URL: null as string | null,
   APP_STORE_URL: null as string | null,
-  WINDOWS_DOWNLOAD_URL: "/downloads/Aika-1.0.1-Windows.exe" as string | null,
-  MACOS_DOWNLOAD_URL: "/downloads/Aika-1.0.1-macOS.dmg" as string | null,
-  LINUX_DOWNLOAD_URL: "/downloads/Aika-1.0.1-Linux.deb" as string | null,
+  WINDOWS_DOWNLOAD_URL: "/downloads/Aika-1.0.3-Windows.exe" as string | null,
+  MACOS_DOWNLOAD_URL: "/downloads/Aika-1.0.3-macOS.dmg" as string | null,
+  LINUX_DOWNLOAD_URL: "/downloads/Aika-1.0.3-Linux.deb" as string | null,
 };
 
 export const GITHUB_URL: string | null = null; // ex: "https://github.com/…"
 export const CONTACT_EMAIL = "contact@naniger.com";
-export const APP_VERSION = "1.0.1";
+export const APP_VERSION = "1.0.3";
 
 export const site = {
   name: "Aika",
