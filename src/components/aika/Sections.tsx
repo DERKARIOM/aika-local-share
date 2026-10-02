@@ -328,6 +328,9 @@ export function DownloadSection() {
                     {p.url ? (
                       <a
                         href={p.url}
+                        {...(/^https?:\/\//.test(p.url)
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
                         className="inline-flex w-full items-center justify-center rounded-full bg-brand px-5 py-3.5 text-sm font-semibold text-primary-foreground shadow-soft transition-transform hover:scale-[1.02]"
                       >
                         {p.cta}
@@ -582,9 +585,15 @@ export function Research() {
               de transfert de données entre appareils sur des réseaux locaux.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-4 border-t border-border pt-8">
-              <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-brand font-display text-lg font-bold text-primary-foreground">
-                BA
-              </span>
+              <img
+                src={site.authorPhoto}
+                alt={`Photo de ${site.author}`}
+                width={48}
+                height={48}
+                loading="lazy"
+                decoding="async"
+                className="size-12 rounded-2xl object-cover"
+              />
               <div>
                 <p className="font-semibold">{site.author}</p>
                 <p className="text-sm text-muted-foreground">

@@ -14,6 +14,7 @@ import mobile7 from "@/assets/screens/mobile-7.jpg";
 import desktop1 from "@/assets/screens/desktop-1.png";
 import desktop2 from "@/assets/screens/desktop-2.png";
 import desktop3 from "@/assets/screens/desktop-3.png";
+import authorPhoto from "@/assets/author-bachir.webp";
 
 /**
  * Liens de téléchargement.
@@ -22,7 +23,7 @@ import desktop3 from "@/assets/screens/desktop-3.png";
  * comme « Bientôt disponible » (aucun faux lien n'est publié).
  */
 export const DOWNLOAD_LINKS = {
-  PLAY_STORE_URL: null as string | null,
+  PLAY_STORE_URL: "https://play.google.com/store/apps/details?id=com.naniger.aika" as string | null,
   APP_STORE_URL: null as string | null,
   WINDOWS_DOWNLOAD_URL: "/downloads/Aika-1.0.3-Windows.exe" as string | null,
   MACOS_DOWNLOAD_URL: "/downloads/Aika-1.0.3-macOS.dmg" as string | null,
@@ -37,6 +38,8 @@ export const site = {
   name: "Aika",
   tagline: "Le partage de fichiers, simplement.",
   author: "Bachir Abdoul Kader",
+  /** Photo affichée dans la section « À propos ». */
+  authorPhoto,
   version: APP_VERSION,
   contactEmail: CONTACT_EMAIL,
   githubUrl: GITHUB_URL,
