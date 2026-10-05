@@ -1,0 +1,3 @@
+bd8b16916f6ec05cb3aec5418aefa51d7584f6f0bad59f20efb7b8299e322044  Aika-v1.1.5-linux-x86-64.deb
+e82beeae0eaf97d2432dafa0e7ae09d69111894dfa8055201624c1785f5807b0  Aika-v1.1.5-macos-universal.dmg
+06a828543aed0dbd221abd2daea7c410ec00e5f3aa0a3351eb8c65fdcc27ff38  Aika-v1.1.5-windows-x64-setup.exe

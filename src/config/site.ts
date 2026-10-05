@@ -25,14 +25,22 @@ import authorPhoto from "@/assets/author-bachir.webp";
 export const DOWNLOAD_LINKS = {
   PLAY_STORE_URL: "https://play.google.com/store/apps/details?id=com.naniger.aika" as string | null,
   APP_STORE_URL: null as string | null,
-  WINDOWS_DOWNLOAD_URL: "/downloads/Aika-1.0.3-Windows.exe" as string | null,
-  MACOS_DOWNLOAD_URL: "/downloads/Aika-1.0.3-macOS.dmg" as string | null,
-  LINUX_DOWNLOAD_URL: "/downloads/Aika-1.0.3-Linux.deb" as string | null,
+  WINDOWS_DOWNLOAD_URL: "/downloads/Aika-v1.1.5-windows-x64-setup.exe" as string | null,
+  MACOS_DOWNLOAD_URL: "/downloads/Aika-v1.1.5-macos-universal.dmg" as string | null,
+  LINUX_DOWNLOAD_URL: "/downloads/Aika-v1.1.5-linux-x86-64.deb" as string | null,
 };
+
+/**
+ * Empreintes SHA-256 des fichiers de téléchargement direct, pour vérifier
+ * qu'un fichier n'a pas été altéré. À régénérer à chaque nouvelle version
+ * (`sha256sum Aika-v* > SHA256SUMS.txt` dans public/downloads).
+ * `null` masque le lien.
+ */
+export const CHECKSUMS_URL: string | null = "/downloads/SHA256SUMS.txt";
 
 export const GITHUB_URL: string | null = null; // ex: "https://github.com/…"
 export const CONTACT_EMAIL = "contact@naniger.com";
-export const APP_VERSION = "1.0.3";
+export const APP_VERSION = "1.1.5";
 
 export const site = {
   name: "Aika",

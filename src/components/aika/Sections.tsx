@@ -33,7 +33,14 @@ import {
 } from "@/components/ui/dialog";
 import { GooglePlayIcon, AppStoreIcon, AppleIcon, WindowsIcon, LinuxIcon } from "./PlatformIcons";
 import { PhoneFrame, LaptopFrame } from "./Mockups";
-import { mobileScreenshots, desktopScreenshots, platforms, site, navLinks } from "@/config/site";
+import {
+  mobileScreenshots,
+  desktopScreenshots,
+  platforms,
+  site,
+  navLinks,
+  CHECKSUMS_URL,
+} from "@/config/site";
 import logoSrc from "@/assets/aika-logo.png";
 
 function SectionTitle({
@@ -365,9 +372,12 @@ export function DownloadSection() {
                           <ol className="mt-2 list-inside list-decimal space-y-3 text-sm text-muted-foreground">
                             <li>
                               Ouvrez le fichier{" "}
-                              <strong className="text-foreground">Aika.dmg</strong> téléchargé, puis
-                              faites glisser <strong className="text-foreground">Aika</strong> dans
-                              le dossier <strong className="text-foreground">Applications</strong>.
+                              <strong className="break-all text-foreground">
+                                {p.url.split("/").pop()}
+                              </strong>{" "}
+                              téléchargé, puis faites glisser{" "}
+                              <strong className="text-foreground">Aika</strong> dans le dossier{" "}
+                              <strong className="text-foreground">Applications</strong>.
                             </li>
                             <li>
                               Lancez Aika depuis Applications. macOS peut afficher un avertissement,
@@ -398,6 +408,17 @@ export function DownloadSection() {
         </ul>
         <p className="mt-8 text-center text-sm text-muted-foreground">
           Version actuelle {site.version}
+          {CHECKSUMS_URL && (
+            <>
+              {" · "}
+              <a
+                href={CHECKSUMS_URL}
+                className="underline-offset-4 transition-colors hover:text-foreground hover:underline"
+              >
+                Empreintes SHA-256
+              </a>
+            </>
+          )}
         </p>
       </div>
     </section>
