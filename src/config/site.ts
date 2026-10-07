@@ -6,7 +6,6 @@
 
 import mobile1 from "@/assets/screens/mobile-1.jpg";
 import mobile2 from "@/assets/screens/mobile-2.jpg";
-import mobile3 from "@/assets/screens/mobile-3.jpg";
 import mobile4 from "@/assets/screens/mobile-4.jpg";
 import mobile5 from "@/assets/screens/mobile-5.jpg";
 import mobile6 from "@/assets/screens/mobile-6.jpg";
@@ -25,9 +24,9 @@ import authorPhoto from "@/assets/author-bachir.webp";
 export const DOWNLOAD_LINKS = {
   PLAY_STORE_URL: "https://play.google.com/store/apps/details?id=com.naniger.aika" as string | null,
   APP_STORE_URL: null as string | null,
-  WINDOWS_DOWNLOAD_URL: "/downloads/Aika-v1.1.5-windows-x64-setup.exe" as string | null,
-  MACOS_DOWNLOAD_URL: "/downloads/Aika-v1.1.5-macos-universal.dmg" as string | null,
-  LINUX_DOWNLOAD_URL: "/downloads/Aika-v1.1.5-linux-x86-64.deb" as string | null,
+  WINDOWS_DOWNLOAD_URL: "/downloads/Aika-v1.3.6-windows-x64-setup.exe" as string | null,
+  MACOS_DOWNLOAD_URL: "/downloads/Aika-v1.3.6-macos-universal.dmg" as string | null,
+  LINUX_DOWNLOAD_URL: "/downloads/Aika-v1.3.6-linux-x86-64.deb" as string | null,
 };
 
 /**
@@ -40,7 +39,7 @@ export const CHECKSUMS_URL: string | null = "/downloads/SHA256SUMS.txt";
 
 export const GITHUB_URL: string | null = null; // ex: "https://github.com/…"
 export const CONTACT_EMAIL = "contact@naniger.com";
-export const APP_VERSION = "1.1.5";
+export const APP_VERSION = "1.3.6";
 
 export const site = {
   name: "Aika",
@@ -107,9 +106,12 @@ export type Screenshot = { src: string; alt: string; label: string };
 
 /** Captures mobiles — remplacez simplement les pointeurs d'assets. */
 export const mobileScreenshots: Screenshot[] = [
-  { src: mobile3, alt: "Écran d'accueil / réception d'Aika", label: "Accueil" },
+  {
+    src: mobile1,
+    alt: "Écran Recevoir d'Aika avec le code QR de connexion",
+    label: "Réception",
+  },
   { src: mobile2, alt: "Écran d'envoi de fichiers d'Aika", label: "Envoi" },
-  { src: mobile1, alt: "Écran de réception d'Aika en mode sombre", label: "Réception" },
   { src: mobile4, alt: "Messagerie locale d'Aika", label: "Messagerie locale" },
   { src: mobile7, alt: "Liste des conversations locales d'Aika", label: "Conversations" },
   { src: mobile5, alt: "Paramètres d'Aika en mode clair", label: "Paramètres" },
