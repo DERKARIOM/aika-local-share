@@ -1,6 +1,6 @@
 import { ArrowRight, Download } from "lucide-react";
 import { PhoneFrame, LaptopFrame } from "./Mockups";
-import { desktopScreenshots } from "@/config/site";
+import heroDesktopSrc from "@/assets/hero-desktop.png";
 import heroMobileSrc from "@/assets/aika-hero-mobile.jpg";
 import logoSrc from "@/assets/aika-logo.png";
 
@@ -43,10 +43,6 @@ function TransferLink() {
 }
 
 export function Hero() {
-  const laptop = desktopScreenshots[0];
-
-  if (!laptop) return null;
-
   return (
     <section id="accueil" className="relative overflow-hidden pt-28 pb-16 sm:pt-36 sm:pb-24">
       <div
@@ -95,10 +91,15 @@ export function Hero() {
         <div className="relative">
           <TransferLink />
           <div className="relative mx-auto max-w-xl">
-            <LaptopFrame src={laptop.src} alt={laptop.alt} priority className="ml-auto w-[88%]" />
+            <LaptopFrame
+              src={heroDesktopSrc}
+              alt="Écran Recevoir d'Aika sur ordinateur, avec son code QR de connexion"
+              priority
+              className="ml-auto w-[88%]"
+            />
             <PhoneFrame
               src={heroMobileSrc}
-              alt="Interface de réception Aika sur Android"
+              alt="Écran Envoyer d'Aika sur Android, avec l'ordinateur détecté à proximité"
               priority
               className="animate-float absolute -bottom-10 left-0 w-[38%] max-w-[190px]"
             />
