@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { navLinks } from "@/config/site";
+import { trackEvent } from "@/lib/analytics";
 import logoSrc from "@/assets/aika-logo.png";
 
 export function Header() {
@@ -53,6 +54,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <a
             href="#telechargements"
+            onClick={() => trackEvent("download_aika", { cta_location: "header" })}
             className="hidden rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft transition-transform hover:scale-[1.03] sm:inline-flex"
           >
             Télécharger

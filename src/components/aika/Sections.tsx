@@ -42,6 +42,29 @@ import {
   CHECKSUMS_URL,
 } from "@/config/site";
 import logoSrc from "@/assets/aika-logo.png";
+import { trackEvent } from "@/lib/analytics";
+
+/** Canal de téléchargement d'un lien, pour la mesure d'audience. */
+function downloadMethod(url: string): string {
+  if (url.startsWith("https://play.google.com/")) return "google_play";
+  if (url.startsWith("https://apps.apple.com/")) return "app_store";
+  return /^https?:\/\//.test(url) ? "external" : "direct";
+}
+
+/** Clic sur le bouton de téléchargement d'une plateforme. */
+function trackPlatformDownload(platform: string, url: string) {
+  const method = downloadMethod(url);
+  trackEvent("download_platform", {
+    platform,
+    method,
+    // Nom public du fichier (ex. « Aika-v1.3.6-windows-x64-setup.exe ») :
+    // indique la version téléchargée.
+    ...(method === "direct" ? { file_name: url.split("/").pop() ?? "" } : {}),
+  });
+  if (method === "google_play") {
+    trackEvent("download_android", { method });
+  }
+}
 
 function SectionTitle({
   eyebrow,
@@ -335,6 +358,7 @@ export function DownloadSection() {
                     {p.url ? (
                       <a
                         href={p.url}
+                        onClick={() => trackPlatformDownload(p.id, p.url!)}
                         {...(/^https?:\/\//.test(p.url)
                           ? { target: "_blank", rel: "noopener noreferrer" }
                           : {})}
@@ -668,6 +692,7 @@ export function Footer() {
             {site.githubUrl ? (
               <a
                 href={site.githubUrl}
+                onClick={() => trackEvent("social_click", { network: "github" })}
                 className="inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground"
               >
                 <Github className="size-4" /> GitHub
@@ -679,6 +704,7 @@ export function Footer() {
             )}
             <a
               href={`mailto:${site.contactEmail}`}
+              onClick={() => trackEvent("social_click", { network: "email" })}
               className="inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground"
             >
               <Mail className="size-4" /> Contact

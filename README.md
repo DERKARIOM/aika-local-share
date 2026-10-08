@@ -123,3 +123,16 @@ de la page d'accueil est un composant dédié dans
 [`src/components/aika/Sections.tsx`](./src/components/aika/Sections.tsx) (et
 [`Hero.tsx`](./src/components/aika/Hero.tsx),
 [`Header.tsx`](./src/components/aika/Header.tsx)).
+
+## Mesure d'audience (Google Analytics 4)
+
+- Activer : renseigner `GA_MEASUREMENT_ID` (« G-XXXXXXXXXX ») dans
+  [`src/config/site.ts`](./src/config/site.ts). Tant qu'il vaut `null`, rien
+  n'est chargé.
+- Toute la logique est dans [`src/lib/analytics.ts`](./src/lib/analytics.ts) :
+  les composants appellent `trackEvent(...)`, jamais `gtag` directement. Les
+  noms d'événements autorisés sont listés dans le type `AnalyticsEvent`.
+- Pages vues : envoyées par `src/routes/__root.tsx` au chargement et à chaque
+  navigation du routeur (les ancres `#…` ne comptent pas).
+- Désactivé en local (`localhost`) et pour les visiteurs ayant activé
+  « Do Not Track » / Global Privacy Control.

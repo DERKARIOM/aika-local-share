@@ -3,6 +3,7 @@ import { PhoneFrame, LaptopFrame } from "./Mockups";
 import heroDesktopSrc from "@/assets/hero-desktop.png";
 import heroMobileSrc from "@/assets/aika-hero-mobile.jpg";
 import logoSrc from "@/assets/aika-logo.png";
+import { trackEvent } from "@/lib/analytics";
 
 /** Animation légère : paquets de données circulant entre le mobile et l'ordinateur. */
 function TransferLink() {
@@ -75,12 +76,14 @@ export function Hero() {
           <div className="mt-9 flex flex-wrap gap-3">
             <a
               href="#telechargements"
+              onClick={() => trackEvent("download_aika", { cta_location: "hero" })}
               className="inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3.5 font-semibold text-primary-foreground shadow-lift transition-transform hover:scale-[1.03]"
             >
               <Download className="size-4" /> Télécharger Aika
             </a>
             <a
               href="#vision"
+              onClick={() => trackEvent("discover_aika", { cta_location: "hero" })}
               className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-7 py-3.5 font-semibold transition-colors hover:bg-secondary"
             >
               Découvrir Aika <ArrowRight className="size-4" />

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/aika/Header";
 import { Footer } from "@/components/aika/Sections";
-import { site } from "@/config/site";
+import { GA_MEASUREMENT_ID, site } from "@/config/site";
 
 const title = "Politique de confidentialité — Aika";
 const description =
@@ -30,9 +30,7 @@ function Privacy() {
         <h1 className="mt-2 font-display text-3xl font-bold tracking-tight sm:text-4xl">
           Politique de confidentialité
         </h1>
-        <p className="mt-3 text-sm text-muted-foreground">
-          Dernière mise à jour : 2 septembre 2026
-        </p>
+        <p className="mt-3 text-sm text-muted-foreground">Dernière mise à jour : 7 octobre 2026</p>
 
         <div className="mt-10 space-y-10 text-[15px] leading-relaxed text-foreground/90">
           <section>
@@ -72,6 +70,22 @@ function Privacy() {
               d'erreurs envoyé à un tiers. Nous ne savons pas qui utilise l'application, ni comment.
             </p>
           </section>
+
+          {GA_MEASUREMENT_ID && (
+            <section>
+              <h2 className="font-display text-xl font-semibold">Mesure d'audience du site web</h2>
+              <p className="mt-3">
+                Ce qui précède concerne l'application. Le site naniger.com, lui, utilise Google
+                Analytics 4 pour mesurer son audience de façon agrégée : pages consultées,
+                provenance des visites, pays, type d'appareil et de navigateur, et clics sur les
+                boutons de téléchargement. Aucun nom, adresse e-mail ni contenu personnel n'est
+                collecté, et les fonctions publicitaires de Google sont désactivées. Si votre
+                navigateur envoie le signal « Do Not Track » ou Global Privacy Control, aucune
+                mesure n'est effectuée. Vous pouvez aussi bloquer Google Analytics avec le module de
+                désactivation de Google ou un bloqueur de contenu.
+              </p>
+            </section>
+          )}
 
           <section>
             <h2 className="font-display text-xl font-semibold">

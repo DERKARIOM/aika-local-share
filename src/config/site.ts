@@ -38,6 +38,15 @@ export const DOWNLOAD_LINKS = {
 export const CHECKSUMS_URL: string | null = "/downloads/SHA256SUMS.txt";
 
 export const GITHUB_URL: string | null = null; // ex: "https://github.com/…"
+
+/**
+ * Identifiant de mesure Google Analytics 4 (format « G-XXXXXXXXXX »),
+ * visible dans GA4 : Administration → Flux de données → Web.
+ * Public par nature (il figure dans le code de chaque page). Tant qu'il vaut
+ * `null`, aucune mesure d'audience n'est chargée. Seul endroit où le
+ * renseigner : voir src/lib/analytics.ts.
+ */
+export const GA_MEASUREMENT_ID: string | null = "G-Y70R7PYZJ8";
 export const CONTACT_EMAIL = "contact@naniger.com";
 export const APP_VERSION = "1.3.6";
 

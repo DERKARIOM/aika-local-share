@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
+import { initAnalytics, trackPageView } from "@/lib/analytics";
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -128,8 +129,25 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+/**
+ * Mesure d'audience : charge Google Analytics (si configuré) et envoie une
+ * page vue au démarrage puis à chaque navigation du routeur. Sans effet
+ * lorsque GA_MEASUREMENT_ID n'est pas renseigné.
+ */
+function useAnalytics() {
+  const router = useRouter();
+  useEffect(() => {
+    initAnalytics();
+    trackPageView(router.state.location.pathname);
+    return router.subscribe("onResolved", (event) => {
+      trackPageView(event.toLocation.pathname);
+    });
+  }, [router]);
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  useAnalytics();
 
   return (
     <QueryClientProvider client={queryClient}>
